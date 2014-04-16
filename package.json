@@ -1,0 +1,11 @@
+{
+  "name": "twittertemp",
+  "version": "0.0.0",
+  "description": "Test twitter temperature",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
