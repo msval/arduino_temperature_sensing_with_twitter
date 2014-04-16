@@ -1,7 +1,9 @@
 #include <math.h>
+#include <VirtualWire.h>
 
 void setup() {
-  Serial.begin(9600);
+  vw_set_tx_pin(12);
+  vw_setup(2000);
 }
 
 double Thermister(int RawADC) {
@@ -29,8 +31,9 @@ void loop(void) {
   char sOut[200] = { '\0' };
   sprintf(sOut, "%s,%s,%s", deblank(sTemp), deblank(sLight), deblank(sMoist));
   
-  Serial.println(sOut);
-
+  vw_send((uint8_t *)sOut, strlen(sOut));
+  vw_wait_tx();
+  
   delay(1000);
 }
 
